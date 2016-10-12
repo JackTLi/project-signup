@@ -1,0 +1,23 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  adapter: postgresql
+  host: localhost
+  username: jack
+  database: project-signup_dev
+
+test:
+  adapter: postgresql
+  host: localhost
+  username: jack
+  database: project-signup_test
+
+production:
+  <<: *default
+  database: project-signup_prod
+  username: produser
+  password: <%= ENV['DATABASE_PASSWORD'] %>
