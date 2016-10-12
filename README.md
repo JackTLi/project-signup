@@ -10,7 +10,7 @@ Ruby version: 2.2.4
 I don't have the exact steps for this, so you're on your own. Good luck :)
 
 ### 2. Set up the application.yml
-Create `application.yml` and add:
+Create `config/application.yml` and add:
 ```
 FB_APP_ID: xxx
 FB_APP_SECRET: xxx
