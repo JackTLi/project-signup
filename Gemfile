@@ -43,7 +43,10 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'httparty'
 gem "select2-rails"
 
+
+
 group :development, :test do
+	gem 'pry-rails'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
 	gem 'pry'
   gem 'byebug'
