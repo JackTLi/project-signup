@@ -1,0 +1,3 @@
+class Producttag < ApplicationRecord
+	
+end
