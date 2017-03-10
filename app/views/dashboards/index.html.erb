@@ -1,5 +1,7 @@
 
-<button class="btn btn-error">button</button>
+<button class="btn btn-error">Profile
+<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+</button>
 
 <% if current_user.present? %>
   Logged in as <%= current_user.name %>
@@ -11,3 +13,15 @@
 <br />
 
 <%= link_to "Sign in with facebook", "/auth/facebook", id: "sign_in" %>
+
+  <div class="col-lg-6">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search for...">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button">Go!</button>
+      </span>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+</div><!-- /.row -->
+
+
