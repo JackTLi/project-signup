@@ -77,3 +77,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end
+
+ProjectSignup::Application.configure do
+  config.react.variant = :production
+end
