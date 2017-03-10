@@ -1,4 +1,6 @@
 
+<button class="btn btn-error">button</button>
+
 <% if current_user.present? %>
   Logged in as <%= current_user.name %>
   <%= link_to "LOG OUT", session_path(1), method: 'delete' %>
