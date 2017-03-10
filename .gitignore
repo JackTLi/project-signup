@@ -15,3 +15,6 @@
 /config/application.yml
 /config/database.yml
 .byebug_history
+
+.DS_Store
+Gemfile.lock
