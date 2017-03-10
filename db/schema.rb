@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20170310211642) do
     t.datetime "updated_at", null: false
   end
 
+
   create_table "products", force: :cascade do |t|
     t.text     "body_html"
     t.datetime "created_at", null: false
