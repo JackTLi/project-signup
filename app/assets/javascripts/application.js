@@ -31,6 +31,7 @@ $(document).ready(function() {
 
       });
 
+  $('#modal1').modal();
 
 	$("select#simple-example").select2({
 		  width: '100%',
