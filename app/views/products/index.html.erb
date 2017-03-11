@@ -9,7 +9,41 @@
         <img src="http://i3.cpcache.com/product/782244121/philosoraptor_tshirt.jpg?color=Black&height=460&width=460&qv=90" class="z-depth-5">
       <% end %>
 
-      		<script type="text/javascript">
+
+
+    		<div class="carousel-description">
+
+    		<button style="right: -240px;" class="btn waves-effect waves-light add-cart"  data-id="<%= product.vid %>">Add to cart</button>
+
+					<h5 id="product-title" style="margin-top:-15px;"><%= product.title %></h5>
+          <p id="product-body">$<%= product.price %></p>
+          <p id="product-vendor">By: <%= product.vendor %></p>
+          <p id="product-body"><%= product.body_html %></p>
+
+          	
+
+				</div>
+
+  		</a>
+  		<% end %>
+
+
+  </div>
+
+	 <!-- Modal Structure -->
+  <div id="modal1" class="modal bottom-sheet">
+    <div class="modal-content">
+        <ul class="searchresults collection">
+        </ul>
+    </div>
+  </div>
+
+
+
+</div>
+
+
+<script type="text/javascript">
 
 
 
@@ -24,38 +58,21 @@
 								  $('.carousel-item.active').children('.carousel-description').fadeIn();
 								}, 500);
   			  			
+  			  		});
+
+  			  		$('.add-cart').click(function() {
+  			  			$.get( "http://waterloo-decode.myshopify.com/cart/add/" + $(this).data('id'), function( data ) {
+								  $(this).html('');
+	  			  			$(this).append('Added')
+								});
+  			  			
   			  		})
 
   			  	});
   			  
 			  </script>
 
-      		<div class="carousel-description">
 
-					<h5 id="product-title"><%= product.title %></h5>
-          <p id="product-body">$<%= product.price %></p>
-          <p id="product-vendor">By: <%= product.vendor %></p><br>
-          <p id="product-body"><%= product.body_html %></p>
-
-					  <button class="btn waves-effect waves-light" type="submit" name="action">Add to cart
-    <i class="material-icons right">send</i>
-  </button>
-
-					</div>
-
-  		</a>
-      
-      
-  		<% end %>
+   
 
 
-  </div>
-    <!-- Modal Structure -->
-  <div id="modal1" class="modal bottom-sheet">
-    <div class="modal-content">
-        <ul class="searchresults collection">
-        </ul>
-    </div>
-  </div>
-
-</div>
