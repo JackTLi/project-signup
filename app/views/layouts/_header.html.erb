@@ -3,24 +3,34 @@
 <script>
    function findsearch(obj){
        var post_data = {
-           key:obj.value
+           key: obj.value
        };
+       
         $.post(
-            "search", 
-            post_data, 
+            "search",
+            post_data,
             success = function(data){
                 console.log(data); 
-                document.getElementsByClassName("searchresults")[0].innerHTML = '';             
-                for(y =0 ;y< data.products.length; y++){
-                    var l = document.createElement("li");
-                    l.innerHTML = data.products[y].title;
-                    x = document.getElementsByClassName("searchresults")[0];
-                    x.insertAdjacentElement('afterbegin',l);
+                if(data.products.length > 0) {
+                    $('#modal1').modal('open');
+                    document.getElementsByClassName("searchresults")[0].innerHTML = '';
+                    
+                    for(y = 0; y < data.products.length; y++) {
+                        var liElem = document.createElement("li");
+                        var aElem = document.createElement("a");
+                        aElem.innerHTML = data.products[y].title;
+                        aElem.href = "?id=" + data.products[y].id;
+                        liElem.insertAdjacentElement('afterbegin', aElem);
+                        liElem.className += "collection-item";
+                        liElem.style.textAlign = "center";
+                        x = document.getElementsByClassName("searchresults")[0];
+                        x.insertAdjacentElement('afterbegin',liElem);
+                    }
+                } else {
+                    $('#modal1').modal('close');
                 }
-            $("searchresults").show();
         });
-
-   }
+    }
 </script>
 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -49,6 +59,8 @@
                 <i class="material-icons">close</i>
               </div>
             </form>
+
+
           </div>
         </nav>
       </div>
@@ -85,10 +97,6 @@
       </div>
     </div>
   </nav>
-
-<div class="searchresults">
-this
-</div>
 
 <!--
 <nav>
