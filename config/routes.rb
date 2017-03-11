@@ -1,11 +1,6 @@
 Rails.application.routes.draw do
 
-<<<<<<< HEAD
-  resources :records
-  root 'dashboards#index'
-=======
   root 'products#index'
->>>>>>> 15a438db381c0e34b947b175a295634a9febe0f8
 
   get 'auth/:provider/callback', to: 'sessions#create'
 	get 'auth/failure', to: redirect('/')

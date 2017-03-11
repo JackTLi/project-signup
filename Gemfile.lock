@@ -261,12 +261,8 @@ DEPENDENCIES
   httparty
   jbuilder (~> 2.0)
   jquery-rails
-<<<<<<< HEAD
-  npm-rails
-=======
   kaminari
   materialize-sass
->>>>>>> 15a438db381c0e34b947b175a295634a9febe0f8
   omniauth-facebook
   pg
   pry
