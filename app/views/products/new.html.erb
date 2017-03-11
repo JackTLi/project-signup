@@ -1,0 +1,6 @@
+<%= form_for @product do |f| %>
+ Title: <%= f.text_field :title %><br />
+ Description : <%= f.text_area :body_html %><br />
+ Vendor    : <%= f.text_field :vendor %><br />
+ <%= f.submit %>
+<% end %>
