@@ -14,16 +14,11 @@
 //= require jquery_ujs
 
 //= require bootstrap-sprockets
-//= require react
-//= require react_ujs
+
 //= require components
 //= require_tree .
 
-//= require react
-//= require react_ujs
-//= require components
 //= require select2
-//= require react_bootstrap
 //= require materialize-sprockets
 
 
