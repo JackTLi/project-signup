@@ -24,7 +24,12 @@
 
 $(document).ready(function() {
 
-	 $('.carousel').carousel();
+	 $('.carousel').carousel({
+            dist:-100,
+            shift:20,
+            padding:20,
+
+      });
 
 
 	$("select#simple-example").select2({

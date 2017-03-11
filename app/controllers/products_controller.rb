@@ -34,8 +34,19 @@ class ProductsController < ApplicationController
   	@result = HTTParty.post(Figaro.env.SHOPIFY_ENDPOINT + "products.json",
   	body: {product: {title: params[:product][:title], body_html: params[:product][:body_html], vendor: params[:product][:vendor], tags: @tags} }.to_json,
     headers: { 'Content-Type' => 'application/json' } )
+
     @product = Product.new(products_params.merge(pid: @result["product"]["id"], vid: @result["product"]["variants"][0]["id"]))
     if @product.save
+
+
+      binding.pry
+
+      if !@product.image.nil? 
+        @result2 = HTTParty.post(Figaro.env.SHOPIFY_ENDPOINT + "products/" + @result["product"]["id"].to_s + "/images.json",
+        body: {image: {src: "http://tryify.shop" + @product.image_url}}.to_json,
+        headers: { 'Content-Type' => 'application/json' } )
+      end
+
       params[:product][:producttag_ids].each do |tag|
         if tag.to_i == 0 
           @tag = Tag.create(name: tag)
