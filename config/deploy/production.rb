@@ -8,7 +8,7 @@
 # server "db.example.com", user: "deploy", roles: %w{db}
 
 
-server "159.203.25.118", user: 'deploy', roles: [:app, :web], :primary => true
+server "138.197.145.172", user: 'deploy', roles: [:app, :web], :primary => true
 
 set :stage, :production
 
