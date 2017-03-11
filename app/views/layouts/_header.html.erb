@@ -52,9 +52,15 @@
           </div>
         </nav>
       </div>
+
       <div class="col s3">
         <div id="navbar" class="navbar-collapse collapse">
+
+
           <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a class="fa fa-shopping-cart fa-2x" href="https://waterloo-decode.myshopify.com/cart"></a>
+            </li>
             <% if current_user.present? %>
             <li class="dropdown navbar-right">
               <a href="/products/new" style="background: transparent;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -73,6 +79,8 @@
                 </ul>
               </li>
               <% else %>
+
+
               <li>
                 <%= link_to "Sign in with facebook", "/auth/facebook", id: "sign_in" %>
               </li>
