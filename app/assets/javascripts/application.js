@@ -24,4 +24,3 @@
 //= require components
 //= require select2
 //= require react_bootstrap
-

@@ -2,7 +2,7 @@
 
 </div>
 
-<%= react_component('Post', {prerender: true}) %>
+<div id="content"></div>
 
 <% if current_user.present? %>
   Logged in as <%= current_user.name %>
@@ -17,7 +17,7 @@
 
   <div class="col-lg-6">
     <div class="input-group">
-
+		<%= react_component('inputGroup', {prerender: true}) %>
     </div><!-- /input-group -->
   </div><!-- /.col-lg-6 -->
 
