@@ -31,7 +31,7 @@ $(document).ready(function() {
 		  width: '100%',
 		  placeholder: "Search Keywords",
 		  ajax: {
-		    url: "http://localhost:3000/api/v1/tags",
+		    url: "http://tryify.shop/api/v1/tags",
 		    dataType: 'json',
 		    delay: 250,
 		    data: function (params) {
@@ -58,9 +58,9 @@ $(document).ready(function() {
 		  templateSelection: formatKeySelection // omitted for brevity, see the source of this page
 
 		});
-    
-    
- 
+
+
+
 
 		function formatKey (key) {
 			return key.name
@@ -75,9 +75,8 @@ $(document).ready(function() {
 			}else {
 				return key.name;
 			}
-			
+
 		}
 
 
 })
-
