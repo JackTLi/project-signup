@@ -24,7 +24,12 @@
 
 $(document).ready(function() {
 
-	 $('.carousel').carousel();
+	 $('.carousel').carousel({
+            dist:-100,
+            shift:20,
+            padding:20,
+
+      });
 
   $('#modal1').modal();
 
@@ -32,7 +37,7 @@ $(document).ready(function() {
 		  width: '100%',
 		  placeholder: "Search Keywords",
 		  ajax: {
-		    url: "http://localhost:3000/api/v1/tags",
+		    url: "http://tryify.shop/api/v1/tags",
 		    dataType: 'json',
 		    delay: 250,
 		    data: function (params) {
@@ -59,9 +64,9 @@ $(document).ready(function() {
 		  templateSelection: formatKeySelection // omitted for brevity, see the source of this page
 
 		});
-    
-    
- 
+
+
+
 
 		function formatKey (key) {
 			return key.name
@@ -76,9 +81,8 @@ $(document).ready(function() {
 			}else {
 				return key.name;
 			}
-			
+
 		}
 
 
 })
-

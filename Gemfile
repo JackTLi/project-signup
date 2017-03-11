@@ -53,6 +53,8 @@ gem 'capistrano-rbenv', '~> 2.1'
 
 gem 'carrierwave', '~> 1.0'
 
+gem 'activeadmin', git: 'https://github.com/activeadmin/activeadmin'
+
 
 
 group :development, :test do

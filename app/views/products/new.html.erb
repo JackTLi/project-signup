@@ -13,10 +13,11 @@
         <label for="title">Title:</label>
       </div>
     </div>
+    <%= f.hidden_field :vendor, value: current_user.name %>
     <div class="row">
       <div class="input-field col s12">
-        <%= f.text_field :vendor, class: 'validate' %>
-        <label for="vendor">Vendor:</label>
+        <%= f.text_field :price, class: 'validate' %>
+        <label for="price">Price:</label>
       </div>
     </div>
     <div class="row">
