@@ -6,11 +6,11 @@
            key:obj.value
        };
         $.post(
-            "search", 
-            post_data, 
+            "search",
+            post_data,
             success = function(data){
-                console.log(data); 
-                document.getElementsByClassName("searchresults")[0].innerHTML = '';             
+                console.log(data);
+                document.getElementsByClassName("searchresults")[0].innerHTML = '';
                 for(y =0 ;y< data.products.length; y++){
                     var l = document.createElement("li");
                     l.innerHTML = data.products[y].title;
@@ -87,7 +87,6 @@
   </nav>
 
 <div class="searchresults">
-this
 </div>
 
 <!--
