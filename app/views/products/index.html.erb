@@ -9,27 +9,35 @@
         <img src="http://i3.cpcache.com/product/782244121/philosoraptor_tshirt.jpg?color=Black&height=460&width=460&qv=90" class="z-depth-5">
       <% end %>
 
-  			  <script type="text/javascript">
-  			  // console.log("anything!!");
-			    var scriptTag = document.getElementsByClassName('carousel-item');
-			    // console.log(scriptTag);
-			    scriptTag = scriptTag[scriptTag.length - 1];
+      		<script type="text/javascript">
 
-			    var parent = scriptTag.parentNode;
 
-			    if (parent.classList.contains('active')) {
-			    	var div = document.createElement('div');
-    				div.className = 'description';
-			    	// val element = document.getElementsByClassName('carousel-item active')
-			    	div.innerHTML = '<h5 id="product-title"><%= product.title %></h5><h7 id="product-vendor">by <%= product.vendor %></h7><br><h7 id="product-body"><%= product.body_html %></h7>'
-			    	console.log(div);
-			    	parent.appendChild(div);
-			    	
-			    }
+
+  			  	$(document).ready(function() {
+
+  			  		$('.carousel').click(function() {
+  			  			$('.carousel-item').children('.carousel-description').fadeOut();
+  			  			setTimeout(function(){
+								  $('.carousel-item.active').children('.carousel-description').fadeIn();
+								}, 500);
+  			  			
+  			  		})
+
+  			  	});
+  			  
 			  </script>
 
+      		<div class="carousel-description">
+
+					<h5 id="product-title"><%= product.title %></h5><h7 id="product-vendor">by <%= product.vendor %></h7><br><h7 id="product-body"><%= product.body_html %></h7>
+
+					<button class="button" style="vertical-align:middle"><span>Buy Now!</span></button>
+
+					</div>
+  			  
+
 			
-  			<button class="button" style="vertical-align:middle"><span>Buy Now!</span></button>
+  			
 
   		</a>
   		<% end %>
