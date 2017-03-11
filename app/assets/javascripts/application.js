@@ -59,6 +59,9 @@ $(document).ready(function() {
 		  templateSelection: formatKeySelection // omitted for brevity, see the source of this page
 
 		});
+    
+    
+ 
 
 		function formatKey (key) {
 			return key.name

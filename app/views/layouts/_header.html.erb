@@ -1,5 +1,20 @@
 <!-- <div class="navbar-wrapper">
 <div class="container"> -->
+<script>
+   function findsearch(obj){     
+        $.post("search",{key:obj.value}, success = function(data){console.log(data); 
+                                             document.getElementsByClassName("searchresults")[0].innerHTML = '';             
+                                         for(y =0 ;y< data.products.length; y++){
+                                               var l = document.createElement("li");
+                                                l.innerHTML = data.products[y].title;
+                                                   x = document.getElementsByClassName("searchresults")[0];
+                                                  x.insertAdjacentElement('afterbegin',l);
+                                                  }
+                                                  $("searchresults").show();
+                                                 })
+                                            
+    }
+</script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <nav class="navbar navbar navbar-static-top">
   <div class="container">
@@ -19,12 +34,14 @@
     <div class="nav-wrapper">
       <form>
         <div class="input-field">
-          <input id="search" type="search" required>
-          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+          <input id="search" type="search" onkeyup="findsearch(this)" required>
+            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
           <i class="material-icons">close</i>
         </div>
       </form>
+       
     </div>
+      
                 </nav>
           </li>
         <% if current_user.present? %>
@@ -52,9 +69,14 @@
 
 
         </ul>
+
       </div>
     </div>
   </nav>
+
+        <div class="searchresults">
+        this
+        </div>
 <!--
 <nav>
     <div class="nav-wrapper">
