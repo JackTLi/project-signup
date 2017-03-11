@@ -34,7 +34,6 @@ class ProductsController < ApplicationController
   	@result = HTTParty.post(Figaro.env.SHOPIFY_ENDPOINT + "products.json",
   	body: {product: {title: params[:product][:title], body_html: params[:product][:body_html], vendor: params[:product][:vendor], tags: @tags} }.to_json,
     headers: { 'Content-Type' => 'application/json' } )
-
     @product = Product.new(products_params.merge(pid: @result["product"]["id"], vid: @result["product"]["variants"][0]["id"]))
     if @product.save
       params[:product][:producttag_ids].each do |tag|
