@@ -2,7 +2,11 @@
   <div class="carousel fixed-height">
   		<% @products.each do |product| %>
   		<a class="carousel-item" href="#">
-  			<img src="http://i3.cpcache.com/product/782244121/philosoraptor_tshirt.jpg?color=Black&height=460&width=460&qv=90" class="z-depth-5">
+      <% if !(product.image.blank?) %>
+  			<img src="<%= product.image %>" class="z-depth-5">
+      <% else %>
+        <img src="http://i3.cpcache.com/product/782244121/philosoraptor_tshirt.jpg?color=Black&height=460&width=460&qv=90" class="z-depth-5">
+      <% end %>
   			<text>
     			<h5 id="product-title"><%= product.title %></h5>
     			<h7 id="product-vendor">by <%= product.vendor %></h7>
