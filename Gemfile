@@ -5,7 +5,6 @@ source 'https://rubygems.org'
 gem 'rails', '5.0.0'
 
 gem 'therubyracer'
-gem 'react-rails'
 
 gem 'pg'
 # Use SCSS for stylesheets
@@ -51,6 +50,8 @@ gem 'capistrano', '~> 3.7', '>= 3.7.1'
 gem 'capistrano-rails', '~> 1.2'
 gem 'capistrano-passenger', '~> 0.2.0'
 gem 'capistrano-rbenv', '~> 2.1'
+
+gem 'carrierwave', '~> 1.0'
 
 
 
