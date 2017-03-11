@@ -3,13 +3,30 @@
   		<% @products.each do |product| %>
   		<a class="carousel-item" href="#">
   			<img src="http://i3.cpcache.com/product/782244121/philosoraptor_tshirt.jpg?color=Black&height=460&width=460&qv=90" class="z-depth-5">
+
+  			  <script>
+			    var scriptTag = document.getElementsByTagName('carousel-item');
+			    scriptTag = scriptTag[scriptTag.length - 1];
+
+			    var parent = scriptTag.parentNode;
+			    if (parent.classList.contains('active')) {
+			    	val element = document.getElementsByClassName('carousel-item active')
+			    	console.log(element)
+			    }
+			  </script>
+
   			<text>
     			<h5 id="product-title"><%= product.title %></h5>
     			<h7 id="product-vendor">by <%= product.vendor %></h7>
     			<br>
     			<h7 id="product-body"><%= product.body_html %></h7>
   			</text>
+  			<button class="button" style="vertical-align:middle"><span>Buy Now!</span></button>
+
   		</a>
   		<% end %>
+
+
   </div>
 </div>
+
