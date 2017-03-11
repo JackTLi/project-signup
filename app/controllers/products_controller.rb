@@ -18,7 +18,7 @@ class ProductsController < ApplicationController
     headers: { 'Content-Type' => 'application/json' } )
     #binding.pry
 
-    @product = Product.new(product_params)
+    @product = Product.new(products_params)
     if @product.save
       redirect_to root_path
     end
