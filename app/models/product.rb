@@ -4,4 +4,7 @@ class Product < ApplicationRecord
 	has_many :tags, :through => :producttags
 	has_many :likes
 	accepts_nested_attributes_for :producttags
+	
+
+	mount_uploader :image, ImageUploader
 end
