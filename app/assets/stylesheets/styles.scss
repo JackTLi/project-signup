@@ -1,7 +1,39 @@
 @import "bootstrap";
 
+.body {
+	 font-family: proxima-nova-light;
+}
+.navbar {
+	background: #30373b !important;
+}
+
+.navbar-brand {
+	color: #ffffff !important;
+}
+
 .fixed-height {
-	height: 700px !important;
+	height: 900px !important;
+	top: -300px;
+}
+
+/*.carousel {
+	height: 900px !important;
+}
+*/
+
+.carousel-item #product-title {
+	color:  #30373b
+}
+
+.carousel-item #product-vendor {
+	color: #96bf48
+}
+
+.carousel-item #product-body {
+	color: #838383;
+}
+.carousel .carousel-item img {
+	width: 200% !important;
 }
 
 .img-circle {
