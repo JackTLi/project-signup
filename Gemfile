@@ -4,11 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '5.0.0'
 
-gem 'npm-rails'
-
 gem 'therubyracer'
-gem 'react-rails'
-gem 'react-bootstrap-rails'
 
 gem 'pg'
 # Use SCSS for stylesheets
