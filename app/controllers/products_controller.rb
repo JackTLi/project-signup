@@ -15,6 +15,7 @@ class ProductsController < ApplicationController
 	def new
 		@product = Product.new
     @tags = Tag.all
+    @images = Image.new
 	end
 
   def create
@@ -59,7 +60,7 @@ class ProductsController < ApplicationController
 	private
 
 		def products_params
-			params.require(:product).permit(:title, :body_html, :vendor)
+			params.require(:product).permit(:title, :body_html, :vendor, :image)
 		end
 
 end
