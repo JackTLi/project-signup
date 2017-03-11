@@ -6,6 +6,7 @@ gem 'rails', '5.0.0'
 
 gem 'therubyracer'
 gem 'react-rails'
+gem 'react-bootstrap-rails'
 
 gem 'pg'
 # Use SCSS for stylesheets
