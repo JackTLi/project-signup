@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 		where(auth.slice(provider: auth.provider, uid: auth.uid)).find_or_create_by(uid: auth.uid) do |user|
 			user.provider = auth.provider
 			user.uid = auth.uid
+			user.first_name = auth.info.first_name
 			user.name = auth.info.name
 			user.image = auth.info.image
 			user.oauth_token = auth.credentials.token

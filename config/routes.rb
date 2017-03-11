@@ -14,4 +14,11 @@ Rails.application.routes.draw do
     post 'remove_like'
     get 'likes_count'
   end
+
+  namespace :api do
+    namespace :v1 do
+		  get 'tags' => 'tags#search'
+		end
+	end
+
 end

@@ -6,17 +6,32 @@ class LikesController < ApplicationController
 
 	include HTTParty
 
-	def new
-		@product = Product.new
+	def index
 	end
 
-	def create
-		binding.pry
-		@result = HTTParty.post(Figaro.env.SHOPIFY_ENDPOINT + "products.json",
-		body: {product: {title: "Test Product", body_html: "Test Product", vendor: "", tags: ""}}.to_json,
-		headers: { 'Content-Type' => 'application/json' } )
-		binding.pry
+	def new
+		@product = Product.new
+    @tags = Tag.all
 	end
+  def create
+  	@result = HTTParty.post(Figaro.env.SHOPIFY_ENDPOINT + "products.json",
+  	body: {product: {title: params[:product][:title], body_html: params[:product][:body_html], vendor: params[:product][:vendor]} }.to_json,
+    headers: { 'Content-Type' => 'application/json' } )
+    binding.pry
+
+    @product = Product.new(products_params.merge(pid: @result["product"]["id"], vid: @result["product"]["variants"][0]["id"]))
+    if @product.save
+
+      redirect_to root_path
+    end
+
+
+  end
+
+  def show
+
+
+  end
 
 	def add_like
 		product = Product.find(params['product_id'])
@@ -32,8 +47,8 @@ class LikesController < ApplicationController
 
 	private
 
-	def products_params
-		params.require(:product).permit(:pid)
-	end
+		def products_params
+			params.require(:product).permit(:title, :body_html, :vendor)
+		end
 
 end

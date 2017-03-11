@@ -1,0 +1,13 @@
+<%= form_for @product do |f| %>
+ Title: <%= f.text_field :title %><br />
+ Description : <%= f.text_area :body_html %><br />
+ Vendor    : <%= f.text_field :vendor %><br />
+
+<label for="id_label_multiple">
+  Click this to highlight the multiple select element
+
+  <select class="js-example-basic-multiple js-states form-control" id="simple-example" multiple="multiple"></select>
+</label>
+
+ <%= f.submit %>
+<% end %>

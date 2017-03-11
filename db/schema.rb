@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20170311020726) do
     t.string   "tags"
     t.string   "title"
     t.string   "vendor"
-    t.integer  "likes",      default: 0, null: false
+    t.bigint   "vid"
   end
 
   create_table "producttags", force: :cascade do |t|
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 20170311020726) do
     t.datetime "oauth_expires_at"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.string   "first_name"
   end
 
 end
