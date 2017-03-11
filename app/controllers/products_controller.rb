@@ -16,7 +16,7 @@ class ProductsController < ApplicationController
   	@result = HTTParty.post(Figaro.env.SHOPIFY_ENDPOINT + "products.json", 
   	body: {product: {title: params[:product][:title], body_html: params[:product][:body_html], vendor: params[:product][:vendor]} }.to_json, 
     headers: { 'Content-Type' => 'application/json' } )
-    binding.pry
+    #binding.pry
 
     @recipe = Recipe.new(recipe_params)
     if @recipe.save
