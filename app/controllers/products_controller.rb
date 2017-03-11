@@ -9,9 +9,9 @@ class ProductsController < ApplicationController
 	end
 
   def create
-  	binding.pry
+  #binding.pry
   	@result = HTTParty.post(Figaro.env.SHOPIFY_ENDPOINT + "products.json", 
-  	body: {product: {title: "Test Product", body_html: "Test Product", vendor: "", tags: ""}}.to_json, 
+  	body: {product: {title: params[:product][:title], body_html: params[:product][:body_html], vendor: params[:product][:vendor]} }.to_json, 
     headers: { 'Content-Type' => 'application/json' } )
     binding.pry
   end
