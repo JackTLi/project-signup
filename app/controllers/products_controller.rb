@@ -1,8 +1,6 @@
-class LikesController < ApplicationController
+class ProductsController < ApplicationController
 	skip_before_filter :verify_authenticity_token,
 	:if => Proc.new { |c| c.request.format == 'application/json' }
-	skip_before_filter :verify_authenticity_token,
-	:only => [:add_like, :remove_like]
 
 	include HTTParty
 
@@ -13,6 +11,7 @@ class LikesController < ApplicationController
 		@product = Product.new
     @tags = Tag.all
 	end
+
   def create
   	@result = HTTParty.post(Figaro.env.SHOPIFY_ENDPOINT + "products.json",
   	body: {product: {title: params[:product][:title], body_html: params[:product][:body_html], vendor: params[:product][:vendor]} }.to_json,
@@ -33,18 +32,7 @@ class LikesController < ApplicationController
 
   end
 
-	def add_like
-		product = Product.find(params['product_id'])
-		product.likes += 1
-		product.save
-	end
-
-	def remove_like
-		product = Product.find(params['product_id'])
-		product.likes -= 1 if product.likes > 0
-		product.save
-	end
-
+	
 	private
 
 		def products_params

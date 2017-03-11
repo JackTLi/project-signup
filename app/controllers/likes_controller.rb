@@ -1,4 +1,4 @@
-class ProductsController < ApplicationController
+class LikesController < ApplicationController
 
 	include HTTParty
 
