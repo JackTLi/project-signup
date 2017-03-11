@@ -2,16 +2,10 @@
 
 </div>
 
-<% if current_user.present? %>
-  Logged in as <%= current_user.name %>
-  <%= link_to "LOG OUT", session_path(1), method: 'delete' %>
-<% else %>
-  Not logged in
-<% end %>
 
 <br />
 
-<%= link_to "Sign in with facebook", "/auth/facebook", id: "sign_in" %>
+
 
   <div class="col-lg-6">
     <div class="input-group">

@@ -9,7 +9,11 @@ Rails.application.routes.draw do
 
   resources :users
   resources :sessions, only: [:create, :destroy]
-  resources :products, only: [:create, :new]
+  resources :products, only: [:create, :new] do
+    post 'add_like'
+    post 'remove_like'
+    get 'likes_count'
+  end
 
   namespace :api do
     namespace :v1 do
