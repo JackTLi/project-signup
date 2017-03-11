@@ -20,14 +20,16 @@ class ProductsController < ApplicationController
 
   def create
     @tags = ""
-    params[:product][:producttag_ids].each do |tag|
-      if tag.to_i == 0 
-        @tags += tag
-        @tags += ", "
-      else
-        @tag = Tag.find(tag.to_i)
-        @tags += @tag.name
-        @tags += ", "
+    if !params[:product][:producttag_ids].nil?
+      params[:product][:producttag_ids].each do |tag|
+        if tag.to_i == 0 
+          @tags += tag
+          @tags += ", "
+        else
+          @tag = Tag.find(tag.to_i)
+          @tags += @tag.name
+          @tags += ", "
+        end
       end
     end
 
@@ -39,21 +41,25 @@ class ProductsController < ApplicationController
     if @product.save
 
 
-      if !@product.image.nil? 
+      if !@product.image.blank? 
         @result2 = HTTParty.post(Figaro.env.SHOPIFY_ENDPOINT + "products/" + @result["product"]["id"].to_s + "/images.json",
         body: {image: {src: "http://tryify.shop" + @product.image_url}}.to_json,
         headers: { 'Content-Type' => 'application/json' } )
       end
 
+      @result3 = HTTParty.put(Figaro.env.SHOPIFY_ENDPOINT + "variants/" + @result["product"]["variants"][0]["id"].to_s + ".json",
+      body: { variant: {id: @result["product"]["variants"][0]["id"], price: @product.price}}.to_json,
+      headers: { 'Content-Type' => 'application/json' } )
 
-      
 
-      params[:product][:producttag_ids].each do |tag|
-        if tag.to_i == 0 
-          @tag = Tag.create(name: tag)
-          Producttag.create(product_id: @product.id, tag_id: @tag.id)
-        else
-          Producttag.create(product_id: @product.id, tag_id: tag.to_i)
+      if !params[:product][:producttag_ids].nil?
+        params[:product][:producttag_ids].each do |tag|
+          if tag.to_i == 0 
+            @tag = Tag.create(name: tag)
+            Producttag.create(product_id: @product.id, tag_id: @tag.id)
+          else
+            Producttag.create(product_id: @product.id, tag_id: tag.to_i)
+          end
         end
       end
       redirect_to root_path
