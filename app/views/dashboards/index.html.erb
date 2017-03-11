@@ -1,6 +1,9 @@
 
 <button class="btn btn-error">button</button>
 
+<%= react_component('Post', {title: "hey yo", body: "this is shopify"}, {prerender: true}) %>
+
+
 <% if current_user.present? %>
   Logged in as <%= current_user.name %>
   <%= link_to "LOG OUT", session_path(1), method: 'delete' %>
