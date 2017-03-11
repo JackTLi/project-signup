@@ -43,6 +43,10 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'httparty'
 gem "select2-rails"
 
+gem 'kaminari'
+
+gem 'materialize-sass'
+
 
 
 group :development, :test do

@@ -20,9 +20,13 @@
 //= require react_ujs
 //= require components
 //= require select2
+//= require materialize-sprockets
 
 
 $(document).ready(function() {
+
+	 $('.carousel').carousel();
+
 
 	$("select#simple-example").select2({
 		  width: '100%',
@@ -57,20 +61,20 @@ $(document).ready(function() {
 		});
 
 		function formatKey (key) {
-				return key.name
-			}
+			return key.name
+		}
 
 
-	  function formatKeySelection (key) {
-	    console.log(key);
+		function formatKeySelection (key) {
+			console.log(key);
 
-			if (key.name == "Add new keyword") {
-				return key.new_value;
+			if (key.name == "Add new tag") {
+				return key.id;
 			}else {
 				return key.name;
 			}
 			
-	}
+		}
 
 
 })

@@ -11,8 +11,14 @@ class Api::V1::TagsController < ApplicationController
 
   def search
     @tags = Tag.where("lower(name) LIKE lower(?)", "%#{params[:key]}%" )
-    render :status => 200,
-           :json => { :tags => @tags }
+    if @tags.count == 0
+      render :status => 200,
+             :json => { :tags => [{id: params[:key], name: "Add new tag"}] }
+    else
+      render :status => 200,
+             :json => { :tags => @tags }
+    end
+    
   end
 
 
