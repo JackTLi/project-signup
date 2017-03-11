@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :likes
 
   def self.from_omniauth(auth)
 		where(auth.slice(provider: auth.provider, uid: auth.uid)).find_or_create_by(uid: auth.uid) do |user|
