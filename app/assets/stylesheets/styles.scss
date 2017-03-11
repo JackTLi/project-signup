@@ -1,7 +1,57 @@
 @import "bootstrap";
 
+.body {
+	 font-family: "Brandon", Helvetica, Arial, 
+}
+.navbar {
+	background: #30373b !important;
+	font-weight: 700 !important;
+	font-kerning: normal !important;
+	line-height: 1.33 !important;
+    font-weight: 500 !important;
+    margin-bottom: 0.66667em !important;
+}
+
+.navbar-brand {
+	color:  #ffffff  !important;
+	font-size: 1.57143em !important;
+	font-kerning: normal !important;
+	line-height: 1.33 !important;
+    font-weight: 500 !important;
+
+}
+
 .fixed-height {
-	height: 700px !important;
+	height: 900px !important;
+	top: -300px;
+}
+
+/*.carousel {
+	height: 900px !important;
+}
+*/
+
+.carousel-item #product-title {
+	color:  #30373b;
+	font-size: 2.57143em;
+	font-kerning: normal;
+	line-height: 1.33;
+    font-weight: 500;
+}
+
+.carousel-item #product-vendor {
+	color: #7ab55c;
+	font-size: 1.5em;
+}
+
+.carousel-item #product-body {
+
+	color: #949494;
+	font-size: 1em;
+	font-weight: 400;
+}
+.carousel .carousel-item img {
+	width: 200% !important;
 }
 
 .img-circle {

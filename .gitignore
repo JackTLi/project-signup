@@ -18,3 +18,5 @@
 
 .DS_Store
 Gemfile.lock
+# Added by npm-rails
+/node_modules
