@@ -38,6 +38,8 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    airbrussh (1.1.2)
+      sshkit (>= 1.6.1, != 1.7.0)
     arel (7.1.4)
     autoprefixer-rails (6.7.6)
       execjs
@@ -52,6 +54,24 @@ GEM
       sass (>= 3.3.4)
     builder (3.2.2)
     byebug (9.0.6)
+    capistrano (3.7.2)
+      airbrussh (>= 1.0.0)
+      capistrano-harrow
+      i18n
+      rake (>= 10.0.0)
+      sshkit (>= 1.9.0)
+    capistrano-bundler (1.2.0)
+      capistrano (~> 3.1)
+      sshkit (~> 1.2)
+    capistrano-harrow (0.5.3)
+    capistrano-passenger (0.2.0)
+      capistrano (~> 3.0)
+    capistrano-rails (1.2.3)
+      capistrano (~> 3.1)
+      capistrano-bundler (~> 1.1)
+    capistrano-rbenv (2.1.0)
+      capistrano (~> 3.1)
+      sshkit (~> 1.3)
     coderay (1.1.1)
     coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
@@ -84,11 +104,25 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.6)
     jwt (1.5.6)
+    kaminari (1.0.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.0.1)
+      kaminari-activerecord (= 1.0.1)
+      kaminari-core (= 1.0.1)
+    kaminari-actionview (1.0.1)
+      actionview
+      kaminari-core (= 1.0.1)
+    kaminari-activerecord (1.0.1)
+      activerecord
+      kaminari-core (= 1.0.1)
+    kaminari-core (1.0.1)
     libv8 (3.16.14.19)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
+    materialize-sass (0.98.0)
+      sass (~> 3.3)
     method_source (0.8.2)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
@@ -98,6 +132,9 @@ GEM
     multi_json (1.12.1)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
+    net-scp (1.2.1)
+      net-ssh (>= 2.6.5)
+    net-ssh (4.1.0)
     nio4r (1.2.1)
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
@@ -184,6 +221,9 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    sshkit (1.12.0)
+      net-scp (>= 1.1.2)
+      net-ssh (>= 2.8.0)
     therubyracer (0.12.3)
       libv8 (~> 3.16.14.15)
       ref
@@ -212,12 +252,21 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass (~> 3.3.6)
   byebug
+  capistrano (~> 3.7, >= 3.7.1)
+  capistrano-passenger (~> 0.2.0)
+  capistrano-rails (~> 1.2)
+  capistrano-rbenv (~> 2.1)
   coffee-rails (~> 4.1.0)
   figaro
   httparty
   jbuilder (~> 2.0)
   jquery-rails
+<<<<<<< HEAD
   npm-rails
+=======
+  kaminari
+  materialize-sass
+>>>>>>> 15a438db381c0e34b947b175a295634a9febe0f8
   omniauth-facebook
   pg
   pry

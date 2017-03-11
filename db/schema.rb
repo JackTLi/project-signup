@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170311010140) do
+ActiveRecord::Schema.define(version: 20170311020726) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,6 +18,13 @@ ActiveRecord::Schema.define(version: 20170311010140) do
   create_table "images", force: :cascade do |t|
     t.string   "url"
     t.integer  "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer  "product_id"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -63,6 +70,7 @@ ActiveRecord::Schema.define(version: 20170311010140) do
     t.datetime "oauth_expires_at"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.string   "first_name"
   end
 
 end

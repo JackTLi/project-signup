@@ -1,42 +1,65 @@
 class ProductsController < ApplicationController
 	skip_before_filter :verify_authenticity_token,
-                     :if => Proc.new { |c| c.request.format == 'application/json' }
+	:if => Proc.new { |c| c.request.format == 'application/json' }
 
 	include HTTParty
 
 	def index
-
+    if params[:id]
+      @products = Kaminari.paginate_array(Product.where(id: params[:id]) + Product.where.not(id: params[:id])).page(params[:page]).per(40)
+    else
+      @products = Kaminari.paginate_array(Product.all).page(params[:page]).per(40)
+    end
 	end
 
 	def new
 		@product = Product.new
+    @tags = Tag.all
 	end
 
   def create
-  	@result = HTTParty.post(Figaro.env.SHOPIFY_ENDPOINT + "products.json", 
-  	body: {product: {title: params[:product][:title], body_html: params[:product][:body_html], vendor: params[:product][:vendor]} }.to_json, 
+    @tags = ""
+    params[:product][:producttag_ids].each do |tag|
+      if tag.to_i == 0 
+        @tags += tag
+        @tags += ", "
+      else
+        @tag = Tag.find(tag.to_i)
+        @tags += @tag.name
+        @tags += ", "
+      end
+    end
+
+  	@result = HTTParty.post(Figaro.env.SHOPIFY_ENDPOINT + "products.json",
+  	body: {product: {title: params[:product][:title], body_html: params[:product][:body_html], vendor: params[:product][:vendor], tags: @tags} }.to_json,
     headers: { 'Content-Type' => 'application/json' } )
-    binding.pry
 
     @product = Product.new(products_params.merge(pid: @result["product"]["id"], vid: @result["product"]["variants"][0]["id"]))
     if @product.save
+      params[:product][:producttag_ids].each do |tag|
+        if tag.to_i == 0 
+          @tag = Tag.create(name: tag)
+          Producttag.create(product_id: @product.id, tag_id: @tag.id)
+        else
+          Producttag.create(product_id: @product.id, tag_id: tag.to_i)
+        end
+      end
       redirect_to root_path
     end
 
-    
+
   end
 
   def show
-  	
+
 
   end
 
 
-  private 
+	private
 
 		def products_params
 			params.require(:product).permit(:title, :body_html, :vendor)
 		end
-
 
 end
