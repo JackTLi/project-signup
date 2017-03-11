@@ -78,7 +78,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 end
 
-# config/environments/production.rb
 ProjectSignup::Application.configure do
   config.react.variant = :production
 end

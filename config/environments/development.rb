@@ -40,13 +40,10 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 end
 
-  # config/environments/development.rb
-  ProjectSignup::Application.configure do
-    config.react.variant = :development
-  end
+# config/environments/development.rb
+ProjectSignup::Application.configure do
+  config.react.variant = :development
+end
 
-  # config.react.jsx_transform_options = {
-  #   blacklist: ['spec.functionName', 'validation.react', 'strict'], # default options
-  #   optional: ["transformerName"],  # pass extra babel options
-  #   whitelist: ["useStrict"] # even more options
-  # }
+
+
