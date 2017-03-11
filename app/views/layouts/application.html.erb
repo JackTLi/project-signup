@@ -27,15 +27,19 @@
               <ul class="nav navbar-nav navbar-right">
               	<% if current_user.present? %>
               	  <li class="dropdown navbar-right">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome
+                  <a href="/products/new" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                   	<img class="img-circle" src="<%= current_user.image %>">
                    <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="#">
+
 					<% if current_user.present? %>
-                    <%= link_to "LOG OUT", session_path(1), method: 'delete' %>
+					<li>
+                    <%= link_to "Profile", "/products/new" %>
+                    </li>
+                    <li>
+                    <%= link_to "Log off", session_path(1), method: 'delete' %>
+                    </li>
                     <% end %>
-                    </a></li>
                   </ul>
                 </li>
               	<% else %>
