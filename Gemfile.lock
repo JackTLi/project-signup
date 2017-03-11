@@ -263,6 +263,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   materialize-sass
+  npm-rails
   omniauth-facebook
   pg
   pry

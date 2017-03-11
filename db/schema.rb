@@ -31,12 +31,11 @@ ActiveRecord::Schema.define(version: 20170311020726) do
 
   create_table "products", force: :cascade do |t|
     t.text     "body_html"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.bigint   "pid"
     t.string   "title"
     t.string   "vendor"
-    t.integer  "likes",      default: 0, null: false
     t.bigint   "vid"
   end
 
