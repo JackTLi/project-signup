@@ -4,6 +4,10 @@ class ProductsController < ApplicationController
 
 	include HTTParty
 
+	def index
+
+	end
+
 	def new
 		@product = Product.new
 	end
@@ -14,6 +18,12 @@ class ProductsController < ApplicationController
   	body: {product: {title: "Test Product", body_html: "Test Product", vendor: "", tags: ""}}.to_json, 
     headers: { 'Content-Type' => 'application/json' } )
     binding.pry
+
+    
+  end
+
+  def show
+  	
   end
 
 
