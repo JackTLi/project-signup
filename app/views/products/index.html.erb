@@ -32,7 +32,10 @@
 
       		<div class="carousel-description">
 
-					<h5 id="product-title"><%= product.title %></h5><h7 id="product-vendor">by <%= product.vendor %></h7><br><h7 id="product-body"><%= product.body_html %></h7>
+					<h5 id="product-title"><%= product.title %></h5>
+          <p id="product-body">$<%= product.price %></p>
+          <p id="product-vendor">By: <%= product.vendor %></p><br>
+          <p id="product-body"><%= product.body_html %></p>
 
 					  <button class="btn waves-effect waves-light" type="submit" name="action">Add to cart
     <i class="material-icons right">send</i>
@@ -41,9 +44,18 @@
 					</div>
 
   		</a>
+      
+      
   		<% end %>
 
 
   </div>
-</div>
+    <!-- Modal Structure -->
+  <div id="modal1" class="modal bottom-sheet">
+    <div class="modal-content">
+        <ul class="searchresults collection">
+        </ul>
+    </div>
+  </div>
 
+</div>

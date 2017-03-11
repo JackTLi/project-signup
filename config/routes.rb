@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  ActiveAdmin.routes(self)
   root 'products#index'
 
   get 'auth/:provider/callback', to: 'sessions#create'

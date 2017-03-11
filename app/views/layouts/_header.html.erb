@@ -3,24 +3,35 @@
 <script>
    function findsearch(obj){
        var post_data = {
-           key:obj.value
+           key: obj.value
        };
+       
         $.post(
             "search",
             post_data,
             success = function(data){
-                console.log(data);
-                document.getElementsByClassName("searchresults")[0].innerHTML = '';
-                for(y =0 ;y< data.products.length; y++){
-                    var l = document.createElement("li");
-                    l.innerHTML = data.products[y].title;
-                    x = document.getElementsByClassName("searchresults")[0];
-                    x.insertAdjacentElement('afterbegin',l);
-                }
-            $("searchresults").show();
-        });
 
-   }
+                console.log(data); 
+                if(data.products.length > 0) {
+                    $('#modal1').modal('open');
+                    document.getElementsByClassName("searchresults")[0].innerHTML = '';
+                    
+                    for(y = 0; y < data.products.length; y++) {
+                        var liElem = document.createElement("li");
+                        var aElem = document.createElement("a");
+                        aElem.innerHTML = data.products[y].title;
+                        aElem.href = "?id=" + data.products[y].id;
+                        liElem.insertAdjacentElement('afterbegin', aElem);
+                        liElem.className += "collection-item";
+                        liElem.style.textAlign = "center";
+                        x = document.getElementsByClassName("searchresults")[0];
+                        x.insertAdjacentElement('afterbegin',liElem);
+                    }
+                } else {
+                    $('#modal1').modal('close');
+                }
+        });
+    }
 </script>
 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -49,6 +60,8 @@
                 <i class="material-icons">close</i>
               </div>
             </form>
+
+
           </div>
         </nav>
       </div>
@@ -94,38 +107,3 @@
     </div>
   </nav>
 
-<div class="searchresults">
-</div>
-
-<!--
-<nav>
-    <div class="nav-wrapper">
-      <form>
-        <div class="input-field">
-          <input id="search" type="search" required>
-          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-          <i class="material-icons">close</i>
-=======
-            </ul>
-          </div>
->>>>>>> d6fa0ee08b7ed7a90b1fe909fa46cd7a1b509efd
-        </div>
-      </div>
-    </div>
-  </nav>
-  <!--
-  <nav>
-  <div class="nav-wrapper">
-  <form>
-  <div class="input-field">
-  <input id="search" type="search" required>
-  <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-  <i class="material-icons">close</i>
-</div>
-</form>
-</div>
-</nav>
--->
-
-
-<!-- </div> -->
