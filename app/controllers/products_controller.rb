@@ -45,6 +45,9 @@ class ProductsController < ApplicationController
         headers: { 'Content-Type' => 'application/json' } )
       end
 
+
+      
+
       params[:product][:producttag_ids].each do |tag|
         if tag.to_i == 0 
           @tag = Tag.create(name: tag)
@@ -68,7 +71,7 @@ class ProductsController < ApplicationController
 	private
 
 		def products_params
-			params.require(:product).permit(:title, :body_html, :vendor, :image)
+			params.require(:product).permit(:title, :body_html, :vendor, :image, :price)
 		end
 
 end
