@@ -39,8 +39,6 @@ class ProductsController < ApplicationController
     if @product.save
 
 
-      binding.pry
-
       if !@product.image.nil? 
         @result2 = HTTParty.post(Figaro.env.SHOPIFY_ENDPOINT + "products/" + @result["product"]["id"].to_s + "/images.json",
         body: {image: {src: "http://tryify.shop" + @product.image_url}}.to_json,
