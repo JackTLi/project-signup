@@ -18,8 +18,8 @@ class ProductsController < ApplicationController
     headers: { 'Content-Type' => 'application/json' } )
     #binding.pry
 
-    @recipe = Recipe.new(recipe_params)
-    if @recipe.save
+    @product = Product.new(product_params)
+    if @product.save
       redirect_to root_path
     end
 
