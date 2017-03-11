@@ -10,6 +10,7 @@ class ProductsController < ApplicationController
 
 	def new
 		@product = Product.new
+    @tags = Tag.all
 	end
 
   def create
@@ -20,6 +21,7 @@ class ProductsController < ApplicationController
 
     @product = Product.new(products_params.merge(pid: @result["product"]["id"], vid: @result["product"]["variants"][0]["id"]))
     if @product.save
+      
       redirect_to root_path
     end
 

@@ -10,4 +10,11 @@ Rails.application.routes.draw do
   resources :users
   resources :sessions, only: [:create, :destroy]
   resources :products, only: [:create, :new]
+
+  namespace :api do
+    namespace :v1 do
+		  get 'tags' => 'tags#search'
+		end
+	end
+
 end
