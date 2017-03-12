@@ -1,4 +1,5 @@
-Tryify
+http://Triyify.shop
+Try-Shopify!
 
 If you want to sell something, an old X-box, a crochet unicorn, or a new gadget, where would you go?  If you aren't ready to take the plunge and open up an online store, Tryify is a solution for you!
 
