@@ -4,6 +4,8 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '5.0.0'
 
+gem 'therubyracer'
+
 gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -35,7 +37,28 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'figaro'
 gem 'omniauth-facebook'
 
+gem 'bootstrap-sass', '~> 3.3.6'
+
+gem 'httparty'
+gem "select2-rails"
+
+gem 'kaminari'
+
+gem 'materialize-sass'
+
+gem 'capistrano', '~> 3.7', '>= 3.7.1'
+gem 'capistrano-rails', '~> 1.2'
+gem 'capistrano-passenger', '~> 0.2.0'
+gem 'capistrano-rbenv', '~> 2.1'
+
+gem 'carrierwave', '~> 1.0'
+
+gem 'activeadmin', git: 'https://github.com/activeadmin/activeadmin'
+
+
+
 group :development, :test do
+	gem 'pry-rails'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
 	gem 'pry'
   gem 'byebug'

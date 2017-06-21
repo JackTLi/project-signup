@@ -1,11 +1,30 @@
+<div class="profile">
 
-<% if current_user.present? %>
-  Logged in as <%= current_user.name %>
-  <%= link_to "LOG OUT", session_path(1), method: 'delete' %>
-<% else %>
-  Not logged in
-<% end %>
+</div>
 
 <br />
 
-<%= link_to "Sign in with facebook", "/auth/facebook", id: "sign_in" %>
+
+
+  <div class="col-lg-6">
+    <div class="input-group">
+		<%= react_component('inputGroup', {prerender: true}) %>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+
+<div class="container">
+  
+<h2>Carousel</h2>
+<div class="span5">
+  
+  <div id="myCarousel" class="carousel">
+    <div class="carousel-inner">
+      
+    </div>
+    <a class="carousel-control left" href="#myCarousel" data-slide="prev">‹</a>
+    <a class="carousel-control right" href="#myCarousel" data-slide="next">›</a>
+  </div>
+</div>
+  
+</div>
+

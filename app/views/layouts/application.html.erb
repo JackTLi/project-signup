@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>ProjectSignup</title>
+<head class="header">
+
+  <title>Tryify</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="preload" as="font" crossorigin="crossorigin" type="font/woff2" href="https://cdn.shopify.com/shopify-marketing_assets/static/Brandon--light.woff2" />
+    <link rel="preload" as="font" crossorigin="crossorigin" type="font/woff2" href="https://cdn.shopify.com/shopify-marketing_assets/static/Brandon--medium.woff2" />
+    <link rel="preload" as="font" crossorigin="crossorigin" type="font/woff2" href="https://cdn.shopify.com/shopify-marketing_assets/static/Brandon--bold.woff2" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
 </head>
-<body>
+<body class="body">
+
+
+<%= render 'layouts/header' %>
 
 <%= yield %>
 
+    
 </body>
 </html>
